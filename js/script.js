@@ -14,18 +14,13 @@ console.log(priceForKilometers);
 // L’output del prezzo finale va messo fuori in forma umana(con massimo due decimali, per indicare centesimi sul prezzo).Questo richiederà un minimo di ricerca.
 
 if (age < 18){
-    discount = ((priceForKilometers / 100) * 20)
-    price = (priceForKilometers - discount).toFixed(2);
+    priceForKilometers = priceForKilometers - (priceForKilometers * 20 / 100);
 } else if (age > 65){
-    discount = ((priceForKilometers / 100) * 40)
-    price = (priceForKilometers - discount).toFixed(2);
-} else {
-    price = priceForKilometers.toFixed(2);
+    priceForKilometers = priceForKilometers - (priceForKilometers * 40 / 100);
 }
 
-
 let text = `
-<h1> Il prezzo totale del biglietto è di: ${price} </h1>
+<h1> Il prezzo totale del biglietto è di: ${priceForKilometers.toFixed(2)} </h1>
 `
 
 document.getElementById("my_js").innerHTML = text
